@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  layout:decorate="default"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <title>Edit Product</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="row" layout:fragment="content">
+      <div class="col-xs-8 col-md-8">
+        <h3>
+          <a class="btn btn-lg btn-primary" href="/product"
+            ><span class="glyphicon glyphicon-list"></span> Product</a
+          >
+        </h3>
+        <h2>Edit Product</h2>
+        <form action="/update">
+          <div class="form-group">
+            <label for="email">Product Name:</label
+            ><input
+              class="form-control"
+              name="prodName"
+              th:value="${product.prodName}"
+              type="text"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Product Description</label
+            ><textarea
+              class="form-control"
+              cols="60"
+              name="prodDesc"
+              rows="3"
+              th:text="${product.prodDesc}"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="email">Product Price</label
+            ><input
+              class="form-control"
+              name="prodPrice"
+              th:value="${product.prodPrice}"
+              type="number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Product Image URL:</label
+            ><input
+              class="form-control"
+              name="prodImage"
+              th:value="${product.prodImage}"
+              type="url"
+            />
+          </div>
+          <input name="id" th:value="${product.id}" type="hidden" />
+          <button class="btn btn-success" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
